@@ -1,0 +1,14 @@
+# This is an example config file for Launchpoint.
+# gpioTriggers is a list of GPIO inputs, for example from buttons, which can trigger a request to a HTTP API. By
+# including a pin in this list Launchpoint will try to set it as an input and bias the resistors to pull-up.
+gpioTriggers:
+    # pin is the BCM pin number of the GPIO pin.
+  - pin: 13
+    # requests is the list of requests to trigger when the button is pressed.
+    requests:
+      # address is the resource to make the request to, which must start http:// or https://.
+    - address: "http://spaceship.com/control"
+      # request is the type of request; currently only GET and POST are supported.
+      method: POST
+      # data is the value to send to the specified address.
+      data: "launch"

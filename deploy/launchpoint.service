@@ -1,0 +1,16 @@
+[Unit]
+Description=Launchpoint GPIO HTTP request launcher
+Documentation=https://github.com/wwwil/launchpoint
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+Group=gpio
+ExecStart=/usr/local/bin/launchpoint --config /home/pi/home.yaml
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
